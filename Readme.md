@@ -8,7 +8,7 @@ there is only one WebHook room in your Glip.
 If you want to switch off any notification you can just make it template "empty".
 
 ## Installation
-Download the  pre-build plugin [here](link?)
+Download the latest pre-build plugin (release) from [here](https://github.com/it-committed/glip-notificator/releases/)
 
 And Follow the TeamCity installation guide for [plugins](https://confluence.jetbrains.com/display/TCD9/Installing+Additional+Plugins)
 
