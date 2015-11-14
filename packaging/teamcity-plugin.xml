@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:shemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>GlipNotificator</name>
+        <display-name>Notifier: Glip</display-name>
+        <version>0.9</version>
+        <description></description>
+        <vendor>
+            <name>It Committed Corp.</name>
+            <url>http://www.it-committed.com</url>
+        </vendor>
+    </info>
+    <deployment use-separate-classloader="true"/>
+</teamcity-plugin>

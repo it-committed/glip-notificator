@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="constructor">
+    <bean id="notificationSettingsDB" class="com.it.committed.tc.glip.notification.settings.NotificationSettingsDB"
+          init-method="init"/>
+    <bean id="notificationTemplate" class="com.it.committed.tc.glip.notification.template.NotificationTemplate" />
+    <bean id="glipNotificator" class="com.it.committed.tc.glip.notification.Notificator"/>
+    <bean id="glipServerExtension" class="com.it.committed.tc.glip.notification.ServerExtension"/>
+    <bean id="glipNotificatorAdminPage" class="com.it.committed.tc.glip.view.AdminPageExtension"/>
+    <bean id="glipNotificatorAdminPageController" class="com.it.committed.tc.glip.view.AdminPageController"/>
+</beans>
