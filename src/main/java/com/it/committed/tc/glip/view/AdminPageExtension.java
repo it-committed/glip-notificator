@@ -54,6 +54,7 @@ public class AdminPageExtension extends AdminPage {
         Log.debug("Filling the admin page using controller '%s' and settings '%s'", storageDB, (settings != null ? settings : "NULL"));
         model.put(NotificationSettings.ENABLED_MODEL_KEY, settings != null ? settings.isEnabled() : defaults.isEnabled());
         model.put(NotificationSettings.APIURL_MODEL_KEY, settings != null ? settings.getApiUrl() : "");
+        model.put(NotificationSettings.TC_BASE_URL_MODEL_KEY, settings != null ? settings.getTcBaseUrl() : "");
 
         // Filling the templates
         model.put(NotificationSettings.BUILD_STARTED_MODEL_KEY, settings != null ? settings.getBuildStarted() : "");

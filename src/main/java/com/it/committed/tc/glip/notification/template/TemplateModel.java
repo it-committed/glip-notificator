@@ -22,6 +22,8 @@ public class TemplateModel {
         COMPLETED("completed"), // Completed %
         DURATION("duration"), // Current duration of the build
         CONFIGURATION("configuration"), // has form "project_name :: buildconfig_name"
+        TC_BASE_URL("tc_base_url"), // TeamCity base url from settings
+        BUILD_URL("build_url"), // Url to the TeamCity build
         TRIGGERED("triggered"); // TriggredBy information
 
         private String variableName;

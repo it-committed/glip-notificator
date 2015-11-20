@@ -149,11 +149,13 @@ public class Notificator implements jetbrains.buildServer.notification.Notificat
     private void sendNotification(SRunningBuild build, NotificationTemplate.TEMPLATE_TYPES templateType) {
         Log.info("Sending notification about '%s' using the settings '%s'", templateType, templateFactory.getCurrentSettings());
         if (templateFactory.getCurrentSettings().isEnabled()) {
+            String nofification = null;
             try {
-                NotificationHttpSender.sendPost(templateFactory.getCurrentSettings().getApiUrl(),
-                        templateFactory.createTemplate(build, templateType).toString());
+                nofification = templateFactory.createAndProcessTemplate(build, templateType).toString();
+                NotificationHttpSender.sendPost(templateFactory.getCurrentSettings().getApiUrl(), nofification);
             } catch (Exception e) {
                 Log.error("There was some error while we were sending the Notification", e);
+                Log.info("The failed notification message was '%'", nofification != null ? nofification : "NULL");
             }
         }
     }

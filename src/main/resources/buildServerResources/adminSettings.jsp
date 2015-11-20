@@ -41,6 +41,15 @@
             <tr>
                 <td colspan="2"><forms:submit id="testConnection" type="button" label="Test connection"/></td>
             </tr>
+            <tr>
+                <th>
+                    <label for="tcBaseUrl">TeamCity Base URL: </label>
+                </th>
+                <td>
+                    <forms:textField name="tcbaseurl" id="tcbaseurl" value="${mod_tcbaseurl}" style="width: 300px;"/>
+                    <span style="color: #888; font-size: 90%;"> URL where your TC is installed.</span>
+                </td>
+            </tr>
             <tr class="groupingTitle">
                 <td colspan="2">JSON Payload Configuration&nbsp;<a
                         href="???"
@@ -141,6 +150,7 @@
     (function ($) {
         var createSaveUrl = function () {
             return "?apiurl=" + encodeURIComponent($("#apiurl").val())
+                            + "&tcbaseurl=" + encodeURIComponent($("#tcbaseurl").val())
                     + "&buildstarted=" + encodeURIComponent($("#buildstarted").val())
                     + "&buildsuccess=" + encodeURIComponent($("#buildsuccess").val())
                     + "&buildfails=" + encodeURIComponent($("#buildfails").val())

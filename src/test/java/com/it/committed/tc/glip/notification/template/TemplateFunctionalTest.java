@@ -53,7 +53,7 @@ public class TemplateFunctionalTest {
 
     @Test
     public void buildStarted() {
-        String tmplt = template.createTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_STARTED);
+        String tmplt = template.createAndProcessTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_STARTED);
         assertTrue("Template not be null", tmplt != null);
 
         try {
@@ -66,7 +66,7 @@ public class TemplateFunctionalTest {
 
     @Test
     public void buildSuccess() {
-        String tmplt = template.createTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_SUCCESSFUL);
+        String tmplt = template.createAndProcessTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_SUCCESSFUL);
         assertTrue("Template not be null", tmplt != null);
 
         try {
@@ -79,7 +79,7 @@ public class TemplateFunctionalTest {
 
     @Test
     public void buildFailed() {
-        String tmplt = template.createTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_FAILED);
+        String tmplt = template.createAndProcessTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.BUILD_FAILED);
         assertTrue("Template not be null", tmplt != null);
 
         try {
@@ -92,7 +92,7 @@ public class TemplateFunctionalTest {
 
     @Test
     public void buildShutdown() { // Should not send anything since now it is not used and empty !!!
-        String tmplt = template.createTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.SERVER_SHUTDOWN);
+        String tmplt = template.createAndProcessTemplate(runningBuild, NotificationTemplate.TEMPLATE_TYPES.SERVER_SHUTDOWN);
         assertTrue("Template not be null", tmplt == null);
     }
 }

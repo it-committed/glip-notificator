@@ -49,7 +49,7 @@ public class ServerExtension extends BuildServerAdapter {
         if (templateFactory.getCurrentSettings().isEnabled()) {
             try {
                 NotificationHttpSender.sendPost(templateFactory.getCurrentSettings().getApiUrl(),
-                        templateFactory.createTemplate(null, templateType).toString());
+                        templateFactory.createAndProcessTemplate(null, templateType).toString());
             } catch (Exception e) {
                 Log.error("There was some error while we were sending the Notification", e);
             }

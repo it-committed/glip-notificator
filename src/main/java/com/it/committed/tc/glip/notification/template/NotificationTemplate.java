@@ -39,7 +39,7 @@ public class NotificationTemplate {
         this.storageDB = storageDB;
     }
 
-    public String createTemplate(SRunningBuild build, TEMPLATE_TYPES templateType) {
+    public String createAndProcessTemplate(SRunningBuild build, TEMPLATE_TYPES templateType) {
         String result = null;
         try {
             String templateStr = null;
@@ -96,12 +96,16 @@ public class NotificationTemplate {
     private Map<String, String> buildObjecToModel(SRunningBuild build) {
         Map<String, String> result = new HashMap<>();
 
+        String buildId = String.valueOf(build.getBuildId());
         result.put(TemplateModel.MODEL_VARS.BRANCH.getVarName(), build.getBranch().getDisplayName());
-        result.put(TemplateModel.MODEL_VARS.BUILD_ID.getVarName(), build.getBuildNumber());
+        result.put(TemplateModel.MODEL_VARS.BUILD_ID.getVarName(), buildId);
         result.put(TemplateModel.MODEL_VARS.BUILD_NUM.getVarName(), build.getBuildNumber());
         result.put(TemplateModel.MODEL_VARS.COMPLETED.getVarName(), String.valueOf(build.getCompletedPercent()));
         result.put(TemplateModel.MODEL_VARS.DURATION.getVarName(), String.valueOf(build.getDuration()));
         result.put(TemplateModel.MODEL_VARS.CONFIGURATION.getVarName(), build.getFullName());
+        result.put(TemplateModel.MODEL_VARS.TC_BASE_URL.getVarName(), storageDB.readSettings().getTcBaseUrl());
+        result.put(TemplateModel.MODEL_VARS.BUILD_URL.getVarName(), storageDB.readSettings().getTcBaseUrl() +
+                "/viewLog.html?buildId=" + buildId + "&tab=buildResultsDiv");
         result.put(TemplateModel.MODEL_VARS.TRIGGERED.getVarName(), build.getTriggeredBy().getAsString());
 
         return result;

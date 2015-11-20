@@ -19,6 +19,7 @@ public class NotificationSettings {
 
     public static final String ENABLED_MODEL_KEY = "mod_enabled";
     public static final String APIURL_MODEL_KEY = "mod_apiurl";
+    public static final String TC_BASE_URL_MODEL_KEY = "mod_tcbaseurl";
 
     public static final String BUILD_STARTED_MODEL_KEY = "mod_buildstarted";
     public static final String BUILD_SUCESS_MODEL_KEY = "mod_buildsuccess";
@@ -31,6 +32,7 @@ public class NotificationSettings {
 
     private Boolean enabled;
     private String apiUrl;
+    private String tcBaseUrl;
     private String buildStarted;
     private String buildSuccess;
     private String buildFails;
@@ -54,6 +56,14 @@ public class NotificationSettings {
 
     public void setApiUrl(String apiUrl) {
         this.apiUrl = apiUrl;
+    }
+
+    public String getTcBaseUrl() {
+        return tcBaseUrl;
+    }
+
+    public void setTcBaseUrl(String tcBaseUrl) {
+        this.tcBaseUrl = tcBaseUrl;
     }
 
     public String getBuildStarted() {
@@ -138,6 +148,7 @@ public class NotificationSettings {
         StringBuffer sb = new StringBuffer();
         sb.append("[Settings: {enabled=").append(getFieldValueSafely(enabled));
         sb.append(", apiUrl=").append(getApiUrl());
+        sb.append(", tcBaseUrl=").append(getTcBaseUrl());
         sb.append(", buildStarted=").append(getBuildStarted() != null ? "SET" : "UNSET");
         sb.append(", buildSuccess=").append(getBuildSuccess() != null ? "SET" : "UNSET");
         sb.append(", buildFails=").append(getBuildFails() != null ? "SET" : "UNSET");

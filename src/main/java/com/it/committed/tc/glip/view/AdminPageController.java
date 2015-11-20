@@ -63,6 +63,7 @@ public class AdminPageController extends BaseController {
 
         // Fill everything except the !isEnabled!
         settings.setApiUrl(readParameter(request, NotificationSettings.APIURL_MODEL_KEY, current.getApiUrl()));
+        settings.setTcBaseUrl(readParameter(request, NotificationSettings.TC_BASE_URL_MODEL_KEY, current.getTcBaseUrl()));
         settings.setBuildStarted(readParameter(request, NotificationSettings.BUILD_STARTED_MODEL_KEY, current.getBuildStarted()));
         settings.setBuildSuccess(readParameter(request, NotificationSettings.BUILD_SUCESS_MODEL_KEY, current.getBuildSuccess()));
         settings.setBuildFails(readParameter(request, NotificationSettings.BUILD_FAILS_MODEL_KEY, current.getBuildFails()));
