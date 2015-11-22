@@ -1,11 +1,14 @@
 # Glip Notifier for TeamCity
-Simple and easy way to add TeamCity notifications to your [Glip](https://glip.com) WebHook integration.
+Simple and easy way to add build notifications from TeamCity to your [Glip](https://glip.com) WebHook integration.
 
-So, you should know that even this plugin build as a TeamCity Notificator, it has one "state" for all user.
-If you want to switch it off, use the button on tha Admin page, but it will turn it off for _all_ user, since
-there is only one WebHook room in your Glip.
+So, you should know, that even this plugin build following the TeamCity Notifier Template, it has only one "state" for all user.
+It basically means, that notification will be done only once per each "event", not per every TC user.
 
-If you want to switch off any notification you can just make it template "empty".
+Having said that, you should still remember to create an Notifier rule for this plugin to be able to work.
+Creation of the "root" rule is recommended. Creation more than one notification rule is not tested and not
+recommended.
+
+You can read more about plugin and Notifier configuration at the Wiki [page](https://github.com/it-committed/glip-notificator/wiki/Managing-plugin-settings).
 
 ## Installation
 Download the latest pre-build plugin (release) from [here](https://github.com/it-committed/glip-notificator/releases/)
@@ -37,7 +40,7 @@ If you want to develop it using your local installation of the TeamCity, then af
 This software is distributed without warranty of any kind, under the [MIT](https://opensource.org/licenses/MIT) license.
 
 ## Thanks to
-This plugin is using only one OS library:
+This plugin is using only one third party library:
 
 ObjectProps - Serializing Java objects into java.util.Properties
 Copyright (C) 2009 by Michael Karneim, http://code.google.com/p/objectprops/
